@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="container mt-5">
+     <div class="p-4 m-4 ">
+          <div class="col-lg-8 mx-auto border rounded-3 py-4 px-4">
+               <h3 class="text-center pb-2 text-info">User Login</h3>
+
+               <!--alert box-->
+               {% if error %}
+               <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <p>{{error}}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+               </div>
+               {% endif %}
+
+               <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="form-group pb-2">
+                         <label for="">Email</label>
+                         <input type="text" name="email" class="form-control">
+                    </div>
+                    <div class="form-group pb-2">
+                         <label for="">Password</label>
+                         <input type="password" name="password" class="form-control">
+                    </div>
+
+                    <p class="text-center"><a href="/forget-password" class="link-danger  link-underline-light" >--Forget Password--</a></p>
+
+                    <div class="form-group pt-2">
+                         <input type="submit" class="btn btn-md btn-outline-info" value="Login">
+                    </div>
+
+                    
+               </form>
+          </div>
+     </div>
+</div>
+
+
+{% endblock %}
